@@ -5,8 +5,16 @@ using JavaScript with React and Express. These are the main files you should be 
 
 ### `convertStatusToJSON.js`
 
-We will convert the status.real file into JSON with the function in this file. Can be found on the root folder.
+We will convert the status.real file into JSON with the function in this file. Can be found in the root folder.
 
 ### `Packages.js`
 
-Listing of the Packages is done on this file. Can be found on "client/src/components/package".
+Listing of the Packages is done on this file. Can be found in "/client/src/components/package".
+
+### `PackageInfo.js`
+
+Information of each package is displayed with this component. Can be found in "/client/src/components/package".
+
+### `server.js`
+
+Sends the JSON formatted data we parsed from "status.real" to the React client. Can be found in the root folder.

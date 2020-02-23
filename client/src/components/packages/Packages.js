@@ -1,43 +1,33 @@
 import React, { Component } from 'react';
+import { NavLink } from "react-router-dom";
 import './Packages.css';
 
 class Packages extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            packages: []
-        }
+        this.state = {}
     }
-
-    //Fetching the JSON data of our packages from the server...
-    componentDidMount() {
-        fetch('/api/packages')
-        .then(res => res.json())
-        .then(packages => this.setState({packages}, () => console.log('Packages fetched...',
-        packages)));
-    }
-
     render(){
-
-        //Sorting our JSON data alphabetically
-        //then mapping trough  the sorted data and 
-        //generating <li> tags for each package.
-        const data = this.state.packages.sort((a, b) => {
+        //Sorting our JSON data alphabetically.
+        const data = this.props.packages.sort((a, b) => {
             return a.Package < b.Package ? -1 : a.Package > b.Package ? 1 : 0;
-        }).map(p => 
+        });
+        //Mapping trough  the sorted data and 
+        //generating <li> tags for each package.
+        const packageList = data.map(p => 
             <li 
             key={p.Package}
             id={p.Package}
             >
-                { p.Package }
-            </li>    
+                <NavLink to={`/packageinfo/${p.Package}`}>{ p.Package }</NavLink>
+            </li>
+              
         );
-
         return(
             <div className="Packages">
                 <h1>Packages</h1>
                 <ul>
-                    {data}
+                    {packageList}
                 </ul>
             </div>
         );

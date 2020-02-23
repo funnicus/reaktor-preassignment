@@ -35,7 +35,7 @@ function convertStatusToJSON(file){
                 let values = rows[j].split([": "[1]]);
                 values[0] = values[0].slice(0, values[0].length-1);
                 values[0] = '"' + values[0] + '"';
-                //Lets add add all the diffirent lines into a single index.
+                //Lets add add all the different lines into a single index.
                 //We will also replace all quotes with commas
                 //because quotes will cause errors when we parse
                 //the data into JSON.
@@ -57,7 +57,7 @@ function convertStatusToJSON(file){
             }catch(err){
                 packages[i] = rows;
                 console.log(packages[i] = rows);
-                console.log(err);
+                //console.log(err);
                 console.log("JSON conversion exception...");
                 return null;
             }
