@@ -1,7 +1,7 @@
 ## About
 
 This folder contains my solution for the pre-assignment. The assignment is solved by
-using JavaScript with React and Express. These are the main files you should be interested of:
+using JavaScript with React and Express. This project is deployed on: https://reaktorpreassignmentsolution.herokuapp.com/. These are the main files you should be interested of:
 
 ### `convertStatusToJSON.js`
 
