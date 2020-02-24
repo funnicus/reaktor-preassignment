@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000;
 //production mode
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static(__dirname));
-    app.use(express.static(path.join(__dirname, 'build')));
+    app.use(express.static(path.join(__dirname, 'public')));
     //
     app.get('/api/packages', (req, res) => {
         //Just put the location of your file as an argument in the parser
@@ -18,7 +18,7 @@ if(process.env.NODE_ENV === 'production') {
     });
     //
     app.get('/*', function (req, res) {
-        res.sendFile(path.join(__dirname, 'build', 'index.html'));
+        res.sendFile(path.join(__dirname, 'public', 'index.html'));
     });
 }
 //build mode
