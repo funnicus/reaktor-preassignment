@@ -16,10 +16,11 @@ class Packages extends Component{
         //generating <li> tags for each package.
         const packageList = data.map(p => 
             <li 
+            className="PackagesList"
             key={p.Package}
             id={p.Package}
             >
-                <NavLink to={`/packageinfo/${p.Package}`}>{ p.Package }</NavLink>
+                <NavLink to={`/packageinfo/${p.Package}`} exact activeClassName="active">{ p.Package }</NavLink>
             </li>
               
         );

@@ -1,7 +1,38 @@
 p {
-    width: 30%;
-    margin: auto;
+    margin: 20px;
 }
 
-.PackageInfo.h2 {
+#GoBack{
+    margin-right: auto;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.PackageInfo {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(219, 217, 217);
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#info{
+    border-bottom: 1px solid grey;
+}
+
+#Dependencies {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.Depends {
+    margin: 20px;
+}
+
+.ReverseDep {
+    margin: 20px;
 }

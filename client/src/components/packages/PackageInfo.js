@@ -60,17 +60,25 @@ class PackageInfo extends Component{
         console.log(reverseDep);
         return(
             <div className="PackageInfo">
-                <NavLink to="/">Go back...</NavLink>
-                <h1>{name}</h1>
-                <p>{desc}</p>
-                <h2>Depends on:</h2>
-                <ul>
-                    {dep === undefined ? <p>Doesn't depend on anything</p>: dep}
-                </ul>
-                <h2>Packages that depend on this package:</h2>
-                <ul>
-                    {typeof reverseDep === undefined || reverseDep.length === 0 ? <p>No package depends on this package</p>: reverseDep}
-                </ul>
+                <NavLink to="/" id="GoBack">close</NavLink>
+                <div id="info">
+                    <h1>{name}</h1>
+                    <p>{desc}</p>
+                </div>
+                <div id="Dependencies">
+                    <div className="Depends">
+                        <h2>Depends on:</h2>
+                        <ul>
+                            {dep === undefined ? <p>Doesn't depend on anything</p>: dep}
+                        </ul>
+                    </div>
+                    <div className="ReverseDep">
+                        <h2>Packages that depend on this package:</h2>
+                        <ul>
+                            {typeof reverseDep === undefined || reverseDep.length === 0 ? <p>No package depends on this package</p>: reverseDep}
+                        </ul>
+                    </div>
+                </div>
             </div>
         );
     }

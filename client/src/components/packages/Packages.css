@@ -5,7 +5,7 @@ ul {
     margin: auto;
 }
 
-li {
+li.PackagesList  {
     font-size: 1.3rem;
     line-height: 2rem;
     border-bottom: 1px dotted #777;
@@ -13,16 +13,17 @@ li {
     color: grey;
 }
 
-li.NavLink {
+.NavLink {
     text-decoration: none;
 }
 
-li:hover {
+.PackagesList li:hover {
     cursor: pointer;
     color: black;
 }
 
-.active-link {
+.active {
     color: black;
-    border-bottom: 1px solid bl;
+    border-bottom: 1px solid black;
+    text-decoration: none;
 }
