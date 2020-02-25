@@ -19,6 +19,7 @@ class PackageInfo extends Component{
                 dep = packages[i].Depends.split(', ');
                 for(let j = 0; j<dep.length;j++){
                     dep[j] = dep[j].split(" ");
+                    dep[j].splice(1, dep[j].length);
                 }
             }
             if(packages[i].Package !== name && packages[i].Depends !== undefined){
@@ -29,22 +30,29 @@ class PackageInfo extends Component{
                     //its added into reverseDep
                     if(otherDep[j][0] === name){
                         reverseDep.push(packages[i].Package);
-                        console.log(reverseDep);
                     }
                 }
             }
         }
         //filtering out duplicates
         reverseDep = [...new Set(reverseDep)];
-
+        function removeDuplicate(arr){
+            let a = []
+            for(let i = 0; i < arr.length; i++){
+                if(a.indexOf(arr[i][0]) === -1){
+                    a.push(arr[i][0]);
+                }
+            }
+            return a;
+        }
         //Generating the lists for the dependencies and
         //reverse dependencies
         if(dep !== undefined){
-            dep = dep.map(d => 
+            dep = removeDuplicate(dep).map(d => 
                 <li
                 key={d}
                 >
-                    <NavLink to={`/packageinfo/${d[0]}`}>{d[0]}</NavLink>
+                    <NavLink to={`/packageinfo/${d}`}>{d}</NavLink>
                 </li>  
                 );
         }
@@ -57,7 +65,6 @@ class PackageInfo extends Component{
                 </li>  
                 );
         }
-        console.log(reverseDep);
         return(
             <div className="PackageInfo">
                 <NavLink to="/" id="GoBack">close</NavLink>
@@ -67,13 +74,13 @@ class PackageInfo extends Component{
                 </div>
                 <div id="Dependencies">
                     <div className="Depends">
-                        <h2>Depends on:</h2>
+                        <h2>Dependencies:</h2>
                         <ul>
                             {dep === undefined ? <p>Doesn't depend on anything</p>: dep}
                         </ul>
                     </div>
                     <div className="ReverseDep">
-                        <h2>Packages that depend on this package:</h2>
+                        <h2>Reverse dependencies:</h2>
                         <ul>
                             {typeof reverseDep === undefined || reverseDep.length === 0 ? <p>No package depends on this package</p>: reverseDep}
                         </ul>
@@ -85,27 +92,3 @@ class PackageInfo extends Component{
 }
 
 export default PackageInfo;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        const dp = this.props.dep.split(", ");
-        const dpList = dp.map(d => {
-            d = d.split(" ");
-            console.log(d);
-            return <li key={d[0]}>{d[0]}</li>
-        });
-        */
